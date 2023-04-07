@@ -1,0 +1,21 @@
+SELECT * FROM employees;
+
+-- One Step
+ALTER TABLE employees
+ADD EmployeeID INT GENERATED ALWAYS AS IDENTITY(START WITH 1000 INCREMENT BY 1) PRIMARY KEY;
+
+
+--Two Steps
+ALTER TABLE employees
+ADD EmployeeID INT GENERATED ALWAYS AS IDENTITY(START WITH 1000 INCREMENT BY 1);
+
+
+ALTER TABLE employees
+ADD CONSTRAINT PK_EmployeeID PRIMARY KEY (EmployeeID);
+
+
+INSERT INTO employees (first_name, last_name)
+VALUES ('Judith', 'Leonard');
+
+
+
